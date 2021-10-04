@@ -1,5 +1,9 @@
 var i;
+<<<<<<< HEAD
 
+=======
+// tambien se puede usar fd (10 + 40)
+>>>>>>> d27b80040620c1c819379f3ab797436e4e54a741
 i = 0;
 while (i < 6) {
 	bk 100;

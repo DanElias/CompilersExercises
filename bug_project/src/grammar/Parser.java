@@ -27,7 +27,11 @@ public class Parser {
 	public void analyze() throws SyntaxError, IOException {
 		token = lexer.scan();
 		statementSequence();
-		System.out.println("ACCEPTED");
+		if (token.getTag() == Tag.EOF) { 
+			System.out.println("ACCEPTED");
+		} else {
+			throw new SyntaxError();
+		}
 	}
 
 	private void statementSequence() throws SyntaxError, IOException {
@@ -62,7 +66,7 @@ public class Parser {
 			check((int) '(');
 			eBool();
 			check((int) ')');
-			sentence();
+			statement();
 		} else if (token.getTag() == (int) '{') {
 			check((int) '{');
 			// sentence();

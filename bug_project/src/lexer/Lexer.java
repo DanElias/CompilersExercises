@@ -69,6 +69,18 @@ public class Lexer {
 			return new Text(val);
 		}
 
+		if (peek == '/') {
+			
+			if (readch('/')) { // comment
+				do {
+					readch();
+				} while ( peek != '\n' );
+				readch();
+			} else {
+				return new Token('/');
+			}
+		}
+
 		if (Character.isDigit(peek)) {
 			int v = 0;
 			do {

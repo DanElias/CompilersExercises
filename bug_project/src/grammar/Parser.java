@@ -57,7 +57,6 @@ public class Parser {
 		} else if (token.getTag() == Tag.PRINT) {
 			check(Tag.PRINT);
 			check((int) '(');
-			//sentence();
 			displayList();
 			check((int) ')');
 			check((int) ';');
@@ -69,7 +68,6 @@ public class Parser {
 			statement();
 		} else if (token.getTag() == (int) '{') {
 			check((int) '{');
-			// sentence();
 			statementSequence();
 			check((int) '}');
 		} else if (token.getTag() == Tag.IF) {
@@ -151,7 +149,7 @@ public class Parser {
 		} else if (token.getTag() == Tag.FALSE) {
 			check(Tag.FALSE);
 		} 
-		else {
+		else if (token.getTag() == Tag.NUMBER || token.getTag() == (int)'(' || token.getTag() == Tag.ID || token.getTag() == Tag.STRING ){
 			expression(); // First is expression
 			if (token.getTag() == Tag.EQ) {
 				check(Tag.EQ);
@@ -165,23 +163,23 @@ public class Parser {
 			} else if (token.getTag() == Tag.NEQ) {
 				check(Tag.NEQ);
 				expression();
-			} else if (token.getTag() == '>') {
+			} else if (token.getTag() == (int)'>') {
 				check((int) '>');
 				expression();
-			} else if (token.getTag() == '<') {
+			} else if (token.getTag() == (int)'<') {
 				check((int) '<');
 				expression();
-			} else { // Not a expected value, throw error
-				throw new SyntaxError();
-			}
+			} 
+		} else { // Not a expected value, throw error
+			throw new SyntaxError();
 		}
 	}
 
 	private void displayList() throws SyntaxError, IOException {
-		try {
+		if (token.getTag() == Tag.NUMBER ||  token.getTag() == Tag.ID || token.getTag() == Tag.STRING ) {
 			element();
 			elementSequence();
-		} catch (Exception e) {
+		} else {
 			// do noting, epsilon
 		}
 		

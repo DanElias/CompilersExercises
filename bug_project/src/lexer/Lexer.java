@@ -43,7 +43,16 @@ public class Lexer {
 				continue;
 			} else if (peek == '\n') {
 				line = line + 1;
-			} else {
+			} else if (peek == '/') {
+				if (readch('/')) { // comment
+					do {
+						readch();
+					} while ( peek != '\n' && peek != '\r' && (int)peek != Tag.EOF);
+					readch();
+				} else {
+					return new Token('/');
+				}
+			}else {
 				break;
 			}
 		}
@@ -69,17 +78,7 @@ public class Lexer {
 			return new Text(val);
 		}
 
-		if (peek == '/') {
-			
-			if (readch('/')) { // comment
-				do {
-					readch();
-				} while ( peek != '\n' );
-				readch();
-			} else {
-				return new Token('/');
-			}
-		}
+		
 
 		if (Character.isDigit(peek)) {
 			int v = 0;

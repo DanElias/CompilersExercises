@@ -46,7 +46,7 @@ FALSE -> '#f'
 STATEMENT -> penup ;
 STATEMENT -> pendown ;
 STATEMENT -> home ;
-STATEMENT -> move PAIR;
+STATEMENT -> move PAIR ;
 PAIR -> EXPRESSION , EXPRESSION ;
 STATEMENT -> forward EXPRESSION ;
 STATEMENT -> left EXPRESSION ; 

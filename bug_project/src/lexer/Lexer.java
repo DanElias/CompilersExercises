@@ -29,7 +29,7 @@ public class Lexer {
 		addReserveWord(new Word("forward", Tag.FORWARD));
 		addReserveWord(new Word("fd", Tag.FORWARD));
 		addReserveWord(new Word("backward", Tag.BACKWARD));
-		addReserveWord(new Word("bd", Tag.BACKWARD));
+		addReserveWord(new Word("bk", Tag.BACKWARD));
 		addReserveWord(new Word("right", Tag.RIGHT));
 		addReserveWord(new Word("rt", Tag.RIGHT));
 		addReserveWord(new Word("left", Tag.LEFT));

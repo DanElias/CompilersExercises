@@ -8,5 +8,11 @@ public class Tag {
 		
 		ID = 357, NUMBER = 358, STRING = 359, TRUE = 360, FALSE = 361,
 		
-		VAR = 457, PRINT = 458, WHILE = 459, IF = 460, ELSE = 461;
+		VAR = 457, PRINT = 458, WHILE = 459, IF = 460, ELSE = 461, 
+
+		HOME = 462, MOVE = 463, 
+
+		PENUP = 557, PENDOWN = 558,
+
+		FORWARD = 657, BACKWARD = 658, RIGHT = 659, LEFT = 660;
 }

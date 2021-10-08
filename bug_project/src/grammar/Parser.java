@@ -36,7 +36,11 @@ public class Parser {
 
 	private void statementSequence() throws SyntaxError, IOException {
 		if (token.getTag() == Tag.VAR || token.getTag() == Tag.ID || token.getTag() == Tag.PRINT  ||
-		    token.getTag() == Tag.WHILE || token.getTag() == (int) '{' || token.getTag() == Tag.IF) {
+		    token.getTag() == Tag.WHILE || token.getTag() == (int) '{' || token.getTag() == Tag.IF || 
+		    token.getTag() == Tag.HOME || token.getTag() == Tag.MOVE ||
+		    token.getTag() == Tag.PENUP || token.getTag() == Tag.PENDOWN || 
+		    token.getTag() == Tag.FORWARD || token.getTag() == Tag.BACKWARD || 
+		    token.getTag() == Tag.RIGHT || token.getTag() == Tag.LEFT ) {
 		statement();
 		statementSequence();
 		} else {
@@ -77,6 +81,39 @@ public class Parser {
 			check((int) ')');
 			statement();
 			restIf();
+		} else if (token.getTag() == Tag.HOME) {
+			check(Tag.HOME);
+			check((int) ';');
+		} else if (token.getTag() == Tag.MOVE) {
+			check(Tag.MOVE);
+			expression();
+			check((int) ',');
+			expression();
+			check((int) ';');
+		} else if (token.getTag() == Tag.PENUP) {
+			check(Tag.PENUP);
+			check((int) ';');
+		} else if (token.getTag() == Tag.PENDOWN) {
+			check(Tag.PENDOWN);
+			check((int) ';');
+		} else if (token.getTag() == Tag.FORWARD) {
+			check(Tag.FORWARD);
+			expression();
+			check((int) ';');
+		} else if (token.getTag() == Tag.BACKWARD) {
+			check(Tag.BACKWARD);
+			expression();
+			check((int) ';');
+		} else if (token.getTag() == Tag.RIGHT) {
+			check(Tag.RIGHT);
+			expression();
+			check((int) ';');
+		} else if (token.getTag() == Tag.LEFT) {
+			check(Tag.LEFT);
+			expression();
+			check((int) ';');
+		} else {
+			throw new SyntaxError();
 		}
 	}
 

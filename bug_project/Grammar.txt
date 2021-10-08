@@ -42,12 +42,13 @@ TRUE -> '#t'
 FALSE -> '#f'
 
 
-
-STATEMENT -> penup ;
-STATEMENT -> pendown ;
 STATEMENT -> home ;
 STATEMENT -> move PAIR ;
 PAIR -> EXPRESSION , EXPRESSION ;
+
+STATEMENT -> penup ;
+STATEMENT -> pendown ;
+
 STATEMENT -> forward EXPRESSION ;
 STATEMENT -> left EXPRESSION ; 
 STATEMENT -> backward EXPRESSION ;

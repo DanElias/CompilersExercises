@@ -1,0 +1,36 @@
+var i;
+
+i = 10;
+while (i <= 360) {
+    var j;
+    j = 1;
+    while (j <= 4) {
+        
+        j = j + 1;
+    }
+    i = i + 10;
+}
+
+home ;
+
+move (10 + 12), 23 ;
+
+penup;
+
+pendown;
+
+forward 55;
+fd (5 + 9);
+
+backward 435;
+bd 5;
+
+left 8 * 41;
+lt 6;
+
+right 7345 + 34 / (3 * 6);
+rt 56;
+
+
+
+ 
